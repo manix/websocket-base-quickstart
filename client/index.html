@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Quickstart</title>
+</head>
+
+<body>
+    <div id="log"></div>
+    <button id="sayhi">Say hello.</button>
+    <button id="connect">Open new connection</button>
+
+    <script>
+        var d = document.getElementById.bind(document);
+
+        function log(text) {
+            d("log").innerHTML += text + "<br/>";
+        }
+
+        var ws = {};
+
+        function connect() {
+            ws = new WebSocket("ws://localhost:81");
+            ws.onmessage = message => log("Received message: " + message.data);
+            ws.onclose = () => log("Server closed connection.");
+            ws.onopen = () => log("Opened connection.")
+        }
+
+        d("sayhi").onclick = () => {
+            log("Sending a hello message to the server.");
+            ws.send(JSON.stringify(["hello", "Hi, server."]));
+        }
+
+        d("connect").onclick = connect;
+    </script>
+</body>
+
+</html>

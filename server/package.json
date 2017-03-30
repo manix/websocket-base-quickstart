@@ -1,0 +1,15 @@
+{
+  "name": "websocket-base-quickstart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "example.js",
+  "dependencies": {
+    "websocket-base": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node example.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
